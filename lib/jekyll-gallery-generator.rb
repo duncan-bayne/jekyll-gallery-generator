@@ -104,7 +104,7 @@ module Jekyll
       begin
         sort_field = config["sort_field"] || "date_time"
         galleries.sort! {|a,b|
-          cmp = b.data[sort_field] <=> a.data[sort_field]
+          cmp = a.data[sort_field] <=> b.data[sort_field]
           # Tie goes to first alphabetically. The different order (a<=>b) is intentional.
           cmp == 0 ? a.data["name"] <=> b.data["name"] : cmp
         }
